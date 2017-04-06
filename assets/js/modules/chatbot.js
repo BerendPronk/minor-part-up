@@ -6,8 +6,8 @@ var chatbot = (function() {
 
 	// User-types
 	var user = {
-		name: 'Berend Pronk',
-		avatar: './assets/img/user.jpg'
+		name: 'Username',
+		avatar: './assets/img/user.png'
 	};
 	var bot = {
 		name: 'Part-up Bot',
