@@ -74,6 +74,11 @@ article {
 		}
 	}
 
+	#chat > li {
+		float: left;
+		clear: both;
+	}
+
 	#chat li {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -100,6 +105,10 @@ article {
 				flex-direction: row;
 				max-width: 65%;
 			}
+		}
+
+		#chat li > * {
+			float: left;
 		}
 
 		#chat li img {
@@ -164,6 +173,7 @@ article {
 				color: #999;
 			}
 	#chat li[data-type="sent"] {
+		float: right;
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
 		-ms-flex-direction: column;
@@ -181,6 +191,7 @@ article {
 		}
 
 		#chat li[data-type="sent"] > *  {
+			float: right;
 			-ms-flex-item-align: end;
 			align-self: flex-end;
 		}
@@ -243,6 +254,7 @@ article {
 
 		#chat li[data-type="choices"] {
 			min-height: initial;
+			clear: both;
 		}
 			#chat li[data-type="choices"] ul {
 				display: -webkit-box;
@@ -263,6 +275,7 @@ article {
 					}
 				}
 			#chat li[data-type="choices"] li {
+				float: left;
 				max-width: initial;
 				padding: 0;
 				margin-right: 1em;
