@@ -454,24 +454,14 @@ var answers = (function() {
 
 	// Compares input-question with answers from the FAQ-page
 	function check(question) {
-
-
-		/*
-			Weird not-properly-working questions
-
-			- What is an upper?
-			- How do I login to part-up?
-
-		*/
-
 		switch (question) {
 			case utils.cleanText('What is a part-up?'):
 				return 'A part-up is a temporary team that works together to realize a shared purpose.';
 			break;
-			case utils.cleanText('​What is an upper?'):
+			case utils.cleanText('What is an upper?'):
 				return 'An upper is a user of Part-up. Someone who is open for collaboration. So even though we’re a Dutch startup, we’re not talking about drugs here :).';
 			break;
-			case utils.cleanText('​How do I login to part-up?'):
+			case utils.cleanText('How do I login to part-up?'):
 				return 'On <a href="http://part-up.com" target="_blank">http://part-up.com</a> you see two buttons in the top right corner. Register and login. Choose register the first time. You can only login once you registred. Once you’ve registered you’ll automatically be logged in.';
 			break;
 			case utils.cleanText('Should I login using Facebook and LinkedIn?'):
