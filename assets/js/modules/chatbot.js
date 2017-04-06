@@ -51,9 +51,6 @@ var chatbot = (function() {
 						for (var i = 0; i < splitQuestion.length; i++) {
 							var cleanWord = utils.cleanText(splitQuestion[i]);
 
-							console.log(cleanWord, utils.checkArray(cleanWord, answers.keyword.list));
-
-
 							// Checks if word can be used as a keyword
 							if (utils.checkArray(cleanWord, answers.keyword.list)) {
 								// Sets timeout to provide a delay on the next bot-message
