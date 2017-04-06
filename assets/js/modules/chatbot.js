@@ -30,13 +30,30 @@ var chatbot = (function() {
 		}
 	}
 
+	// Sets a temporary loader to set the illusion that the bot is thinking
+	function setLoader() {
+		var loaderCtn = document.createElement('li');
+		var loader = document.createElement('img');
+
+		loader.src = './assets/img/load.gif';
+
+		loaderCtn.appendChild(loader);
+		chat.appendChild(loaderCtn);
+
+		// Removes loader
+		setTimeout(function() {
+			chat.removeChild(loaderCtn);
+		}, 750);
+	}
+
 	// Creates a conversation between human user and bot
 	function createConv(question) {
 		if (question !== '') {
 			var cleanQuestion = utils.cleanText(question);
 			createMsg(user, question);
 
-			// set load animation and remove in the timeout-function
+			// Sets a temporary loader
+			setLoader();
 
 			// Sets timeout before returning an reply
 			setTimeout(function() {
@@ -57,11 +74,11 @@ var chatbot = (function() {
 								// Sets timeout to provide a delay on the next bot-message
 								setTimeout(function() {
 									createMsg(bot, 'Maybe you were looking for this?');
-								}, 500)
+								}, 1250)
 								// Sets timeout to provide a delay on keyword-options
 								setTimeout(function() {
 									createOpts(answers.keyword.suggest(cleanWord));
-								}, 1000)
+								}, 1750)
 
 								return false;
 							}
@@ -71,7 +88,7 @@ var chatbot = (function() {
 					createMsg(bot, answers.options(cleanQuestion).response);
 					createOpts(answers.options(cleanQuestion).followups);
 				}
-			}, 250); // 750
+			}, 750);
 		}
 	}
 
@@ -110,13 +127,21 @@ var chatbot = (function() {
 		textCtn.appendChild(name);
 		textCtn.appendChild(text);
 
+		msg.className = 'out-frame';
 		msg.appendChild(img);
 		msg.appendChild(textCtn);
 
 		chat.appendChild(msg);
 
-		// Guides user to latest post
-		msg.scrollIntoView();
+		// Removes classname after 200 milliseconds
+		setTimeout(function() {
+			msg.className = '';
+		}, 200);
+
+		// Guides user to latest post when animation has finished
+		setTimeout(function() {
+			msg.scrollIntoView();
+		}, 400);
 	}
 
 	// Creates list of options for user to choose from
@@ -140,13 +165,16 @@ var chatbot = (function() {
 			choiceList.appendChild(choiceCtn);
 		});
 
+		choiceListCtn.className = 'out-frame';
 		choiceListCtn.setAttribute('data-type', 'choices');
 
 		choiceListCtn.appendChild(choiceList);
 		chat.appendChild(choiceListCtn);
 
-		// Guides user to latest options
-		choiceListCtn.scrollIntoView();
+		// Removes classname after waiting for the bot-message to arrive plus some small delay, 700 milliseconds
+		setTimeout(function() {
+			choiceListCtn.className = '';
+		}, 700);
 	}
 
 	return {
