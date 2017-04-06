@@ -35,16 +35,45 @@ var chatbot = (function() {
 			var cleanQuestion = utils.cleanText(question);
 			createMsg(user, question);
 
-			console.log();
+			// set load animation and remove in the timeout-function
 
+			// Sets timeout before returning an reply
 			setTimeout(function() {
+	            // Checks if final-possible options has been reached, returns answer with or without follow-up questions
 				if (answers.options(cleanQuestion).final === true) {
-					createMsg(bot, answers.check(cleanQuestion));
+					createMsg(bot, answers.check(cleanQuestion).response);
+
+					// When no answer is found, check question on keywords to suggest to user
+					if (answers.check(cleanQuestion).checkKeyword === true) {
+						var splitQuestion = question.split(' ');
+
+						// Loops through every word in given question
+						for (var i = 0; i < splitQuestion.length; i++) {
+							var cleanWord = utils.cleanText(splitQuestion[i]);
+
+							console.log(cleanWord, utils.checkArray(cleanWord, answers.keyword.list));
+
+
+							// Checks if word can be used as a keyword
+							if (utils.checkArray(cleanWord, answers.keyword.list)) {
+								// Sets timeout to provide a delay on the next bot-message
+								setTimeout(function() {
+									createMsg(bot, 'Maybe you were looking for this?');
+								}, 500)
+								// Sets timeout to provide a delay on keyword-options
+								setTimeout(function() {
+									createOpts(answers.keyword.suggest(cleanWord));
+								}, 1000)
+
+								return false;
+							}
+						}
+					}
 				} else {
 					createMsg(bot, answers.options(cleanQuestion).response);
 					createOpts(answers.options(cleanQuestion).followups);
 				}
-			}, 250);
+			}, 250); // 750
 		}
 	}
 

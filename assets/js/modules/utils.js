@@ -1,6 +1,6 @@
 var utils = (function() {
 	// Returns AM / PM time format
-	var formatTime = function(date) {
+	function formatTime(date) {
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
 		var ampm = hours >= 12 ? 'PM' : 'AM';
@@ -12,16 +12,26 @@ var utils = (function() {
 		strTime = hours + ':' + minutes + ' ' + ampm;
 
 		return strTime;
-	};
+	}
 
 	// Sets input to lowercase and removes special characters and spaces.
-	var cleanText = function(text) {
+	function cleanText(text) {
 		return text.toLowerCase().replace(/[ ,.;:!?@#$%^&*<>\(\)\[\]\{\}'"]/g,'').replace(/-/g, '');
+	}
+
+	// Checks if item consists in chosen array
+	var checkArray = function(item, arr) {
+		if (arr.indexOf(item) !== -1) {
+			return true;
+		} else {
+			return false
+		}
 	};
 
 	return {
 		formatTime: formatTime,
-		cleanText: cleanText
+		cleanText: cleanText,
+		checkArray: checkArray
 	};
 
 }) ();
