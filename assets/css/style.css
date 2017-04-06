@@ -24,8 +24,16 @@ body {
 	}
 
 article {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
 	justify-content: flex-end;
 	width: 100%;
 	max-width: 50rem;
@@ -48,7 +56,13 @@ article {
 }
 
 #chat {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
 	margin: 0;
 	padding: 1rem;
@@ -61,15 +75,28 @@ article {
 	}
 
 	#chat li {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
 		flex-direction: column;
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		-ms-grid-row-align: flex-start;
 		align-items: flex-start;
 		max-width: 100%;
 		margin-bottom: 1rem;
 		font-size: .875em;
+		list-style-type: none;
 	}
 		@media (min-width: 40em) {
 			#chat li {
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: row;
 				flex-direction: row;
 				max-width: 65%;
 			}
@@ -137,20 +164,29 @@ article {
 				color: #999;
 			}
 	#chat li[data-type="sent"] {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
 		flex-direction: column;
+		-ms-flex-item-align: end;
 		align-self: flex-end;
 	}
 		@media (min-width: 40em) {
 			#chat li[data-type="sent"] {
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: reverse;
+				-ms-flex-direction: row-reverse;
 				flex-direction: row-reverse;
 			}
 		}
 
 		#chat li[data-type="sent"] > *  {
+			-ms-flex-item-align: end;
 			align-self: flex-end;
 		}
 			@media (min-width: 40em) {
 				#chat li[data-type="sent"] > * {
+					-ms-flex-item-align: initial;
 					align-self: initial;
 				}
 			}
@@ -209,8 +245,15 @@ article {
 			min-height: initial;
 		}
 			#chat li[data-type="choices"] ul {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
 				display: flex;
+				-ms-flex-wrap: wrap;
 				flex-wrap: wrap;
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: row;
 				flex-direction: row;
 				padding-left: 0;
 			}
@@ -256,6 +299,9 @@ article {
 				}
 
 #form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	width: 100%;
 }
