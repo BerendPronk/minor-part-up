@@ -1104,7 +1104,7 @@ var answers = (function() {
 				break;
 				case 'hq':
 					return [
-						'Where is our HQ?'
+						'Where is your HQ?'
 					];
 				break;
 				case 'license':
