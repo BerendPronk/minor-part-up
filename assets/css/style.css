@@ -16,6 +16,7 @@ body {
 	padding: 1rem;
 	font-family: 'ProximaNova-Regular', sans-serif;
 	background-color: #f9f9f9;
+	background: url('../img/background.jpg');
 }
 	@media (min-width: 40em) {
 		body {
