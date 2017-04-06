@@ -1,9 +1,10 @@
 var answers = (function() {
 	// Retrieves options based on input-question
 	function options(option) {
+		console.log(utils.cleanText(option));
 		switch (option) {
 			// Categories
-			case 'The Product':
+			case utils.cleanText('The Product'):
 				return {
 					response: 'Our product sure has a lot of different terminology to get used to. That\'s why you are faced with some (more specific) topics.',
 					followups: [
@@ -16,7 +17,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Users':
+			case utils.cleanText('Users'):
 				return {
 					response: 'I have put everything related to users of part-up, including your own (future) account, in the following topics.',
 					followups: [
@@ -28,7 +29,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'The Part-up Company':
+			case utils.cleanText('The Part-up Company'):
 				return {
 					response: 'What a pleasure to see that you are interested in our company. What do you want to know more about?',
 					followups: [
@@ -39,7 +40,7 @@ var answers = (function() {
 				}
 			break;
 			// Sub-categories
-			case 'Part-ups':
+			case utils.cleanText('Part-ups'):
 				return {
 					response: 'Even in this sub-category there are just too many questions to overwhelm you with. Where does your initial question lie?',
 					followups: [
@@ -49,7 +50,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Partners':
+			case utils.cleanText('Partners'):
 				return {
 					response: 'Partners play a big role here with part-up. On which of the following topics do you wish to receive more information?',
 					followups: [
@@ -60,7 +61,7 @@ var answers = (function() {
 				}
 			break;
 			// Question responses
-			case 'Part-ups in general':
+			case utils.cleanText('Part-ups in general'):
 				return {
 					response: 'Ahh, at last, some questions! Select one to get an answer from me.',
 					followups: [
@@ -74,7 +75,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Using part-ups':
+			case utils.cleanText('Using part-ups'):
 				return {
 					response: 'Are you a new user, or do you just want to know more about using part-ups? I will provide you with answers!',
 					followups: [
@@ -88,7 +89,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Rating':
+			case utils.cleanText('Rating'):
 				return {
 					response: 'Yeah, what about our rating system? I\'d like to tell you!',
 					followups: [
@@ -100,7 +101,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Activities':
+			case utils.cleanText('Activities'):
 				return {
 					response: 'Part-up is built on activities, it\'s one of the key functions of Part-up. These questions will provide help, if needed.',
 					followups: [
@@ -111,7 +112,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Tribes':
+			case utils.cleanText('Tribes'):
 				return {
 					response: 'I understand that this might be confusing at first, but we\'ll get there together!',
 					followups: [
@@ -124,7 +125,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Mail':
+			case utils.cleanText('Mail'):
 				return {
 					response: 'Troubles with your mailing program? We can fix it together!',
 					followups: [
@@ -133,7 +134,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Account':
+			case utils.cleanText('Account'):
 				return {
 					response: 'Everything there is to know about your personal account, is listed in the topics below. Hope it helps!',
 					followups: [
@@ -147,7 +148,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Uppers':
+			case utils.cleanText('Uppers'):
 				return {
 					response: 'Have you seen the word \'upper\' appear, but don\'t know what it is? Maybe this will help.',
 					followups: [
@@ -159,7 +160,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Partners in general':
+			case utils.cleanText('Partners in general'):
 				return {
 					response: 'Here follow some options for you to choose from, based on frequently asked questions on partners.',
 					followups: [
@@ -170,7 +171,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Partners in my part-up':
+			case utils.cleanText('Partners in my part-up'):
 				return {
 					response: 'You are very specific, my friend! You\'ve reached an end here, please select one of the following options to get your answer!',
 					followups: [
@@ -182,7 +183,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Supporters':
+			case utils.cleanText('Supporters'):
 				return {
 					response: 'Came across supporters and would like to know more? Select one of the next options to get you answer.',
 					followups: [
@@ -192,7 +193,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Our Product':
+			case utils.cleanText('Our Product'):
 				return {
 					response: 'We are very proud of Part-up, and are delighted that you show interest. Maybe these following options will answer your question.',
 					followups: [
@@ -203,7 +204,7 @@ var answers = (function() {
 					final: false
 				}
 			break;
-			case 'Miscellaneous':
+			case utils.cleanText('Miscellaneous'):
 				return {
 					response: 'Everything about our company that\'s not specifically about the product is listed here.',
 					followups: [
@@ -215,232 +216,232 @@ var answers = (function() {
 				}
 			break;
 			// Finals
-			case 'What is a part-up?':
+			case utils.cleanText('What is a part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is an upper?':
+			case utils.cleanText('What is an upper?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How do I login to part-up?':
+			case utils.cleanText('How do I login to part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Should I login using Facebook and LinkedIn?':
+			case utils.cleanText('Should I login using Facebook and LinkedIn?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How do I join a part-up?':
+			case utils.cleanText('How do I join a part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why do I have to rate my partners?':
+			case utils.cleanText('Why do I have to rate my partners?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How can I rate the partners in my part-up?':
+			case utils.cleanText('How can I rate the partners in my part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Who can see my rating?':
+			case utils.cleanText('Who can see my rating?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What happens if I get a bad rating?':
+			case utils.cleanText('What happens if I get a bad rating?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is a partner?':
+			case utils.cleanText('What is a partner?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is a supporter?':
+			case utils.cleanText('What is a supporter?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is an activity?':
+			case utils.cleanText('What is an activity?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How can I invite other uppers to my part-up?':
+			case utils.cleanText('How can I invite other uppers to my part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Change the mail program':
+			case utils.cleanText('Change the mail program'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why can I only invite uppers to activities and not to my part-up?':
+			case utils.cleanText('Why can I only invite uppers to activities and not to my part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How can I change the order of my activities?':
+			case utils.cleanText('How can I change the order of my activities?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Can I share part-ups on social media?':
+			case utils.cleanText('Can I share part-ups on social media?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Can I use part-up in my organization?':
+			case utils.cleanText('Can I use part-up in my organization?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is a tribe?':
+			case utils.cleanText('What is a tribe?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How do I get a tribe?':
+			case utils.cleanText('How do I get a tribe?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Do I need a tribe?':
+			case utils.cleanText('Do I need a tribe?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why do I have to add a picture to my part-up?':
+			case utils.cleanText('Why do I have to add a picture to my part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Who can accept partners to part-up?':
+			case utils.cleanText('Who can accept partners to part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How many partners or supporters can join my part-up?':
+			case utils.cleanText('How many partners or supporters can join my part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is the maximum duration of a part-up?':
+			case utils.cleanText('What is the maximum duration of a part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'What is that number added to my profile picture?':
+			case utils.cleanText('What is that number added to my profile picture?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why should I add my social profiles and phone number?':
+			case utils.cleanText('Why should I add my social profiles and phone number?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why do I need a premium account for a private part-up?':
+			case utils.cleanText('Why do I need a premium account for a private part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How many uppers can join a tribe?':
+			case utils.cleanText('How many uppers can join a tribe?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How many part-ups can I start within a tribe?':
+			case utils.cleanText('How many part-ups can I start within a tribe?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Can I pay people to work on my part-up?':
+			case utils.cleanText('Can I pay people to work on my part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Can I earn money working in part-ups?':
+			case utils.cleanText('Can I earn money working in part-ups?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Can I delete my account?':
+			case utils.cleanText('Can I delete my account?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why are all partners equal?':
+			case utils.cleanText('Why are all partners equal?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How do I keep an overview?':
+			case utils.cleanText('How do I keep an overview?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How do I settle an argument with my partners within a part-up?':
+			case utils.cleanText('How do I settle an argument with my partners within a part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How can I report inappropriate behavior of other uppers?':
+			case utils.cleanText('How can I report inappropriate behavior of other uppers?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why is part-up free to use?':
+			case utils.cleanText('Why is part-up free to use?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Why did no one else come up with the idea of part-up?':
+			case utils.cleanText('Why did no one else come up with the idea of part-up?'):
 				return {
 					final: true
 				}
 			break;
-			case 'How is part-up different?':
+			case utils.cleanText('How is part-up different?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Should I use part-up if I have my team already?':
+			case utils.cleanText('Should I use part-up if I have my team already?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Can I copy part-ups?':
+			case utils.cleanText('Can I copy part-ups?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Where can I meet the founders?':
+			case utils.cleanText('Where can I meet the founders?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Where is your HQ?':
+			case utils.cleanText('Where is your HQ?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Does the part-up source code have an open source license?':
+			case utils.cleanText('Does the part-up source code have an open source license?'):
 				return {
 					final: true
 				}
 			break;
-			case 'Is there anyway to track action - not just comment on the activities and messages? Is the platform mainly made to facilitate discussions or also to actually work together or should one use another channel for further collaboration?':
+			case utils.cleanText('Is there anyway to track action - not just comment on the activities and messages? Is the platform mainly made to facilitate discussions or also to actually work together or should one use another channel for further collaboration?'):
 				return {
 					final: true
 				}

@@ -32,14 +32,18 @@ var chatbot = (function() {
 	// Creates a conversation between human user and bot
 	function createConv(question) {
 		if (question !== '') {
+			var cleanQuestion = utils.cleanText(question);
 			createMsg(user, question);
 
+			console.log();
+
 			setTimeout(function() {
-				createMsg(bot, answers.check(utils.cleanText(question)));
-
-
-				// check on keywords if not understood, first
-				// createOpts();
+				if (answers.options(cleanQuestion).final === true) {
+					createMsg(bot, answers.check(cleanQuestion));
+				} else {
+					createMsg(bot, answers.options(cleanQuestion).response);
+					createOpts(answers.options(cleanQuestion).followups);
+				}
 			}, 250);
 		}
 	}
@@ -96,20 +100,14 @@ var chatbot = (function() {
 		options.map(function(option) {
 			var choiceCtn = document.createElement('li');
 			var choice = document.createElement('button');
+			var cleanOption = utils.cleanText(option);
 
 			choice.insertAdjacentHTML('afterbegin', option);
 
-			// Checks if final-possible options has been reached
-			if (answers.options(option).final === true) {
-				choice.addEventListener('click', function() {
-					createConv(option);
-				});
-			} else  {
-				choice.addEventListener('click', function() {
-					createMsg(bot, answers.options(option).response);
-					createOpts(answers.options(option).followups);
-				});
-			}
+			// Creates conversation when option is selected
+			choice.addEventListener('click', function() {
+				createConv(option);
+			});
 
 			choiceCtn.appendChild(choice);
 			choiceList.appendChild(choiceCtn);
