@@ -92,14 +92,14 @@ var chatbot = (function() {
 
 		img.src = user.avatar;
 
-		time.classList.add('time');
+		time.className = 'time';
 		time.insertAdjacentHTML('afterbegin', utils.formatTime(new Date()));
 
 		name.innerText = user.name;
-		name.classList.add('name');
+		name.className = 'name';
 		name.appendChild(time);
 
-		text.classList.add('msg');
+		text.className = 'msg';
 
 		if (user !== bot) {
 			text.innerText = question;
@@ -109,7 +109,7 @@ var chatbot = (function() {
 			msg.setAttribute('data-type', 'received');
 		}
 
-		textCtn.classList.add('text-ctn');
+		textCtn.className = 'text-ctn';
 		textCtn.appendChild(name);
 		textCtn.appendChild(text);
 
