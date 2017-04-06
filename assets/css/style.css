@@ -16,6 +16,7 @@ body {
 	padding: 1rem;
 	font-family: 'ProximaNova-Regular', sans-serif;
 	background-color: #f9f9f9;
+	background: url('../img/background.jpg');
 }
 	@media (min-width: 40em) {
 		body {
@@ -66,7 +67,8 @@ article {
 	flex-direction: column;
 	margin: 0;
 	padding: 1rem;
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 	@media (min-width: 40em) {
 		#chat {
@@ -77,6 +79,11 @@ article {
 	#chat > li {
 		float: left;
 		clear: both;
+		opacity: 1;
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+		transition: transform .2s ease, opacity .2s ease;
 	}
 
 	#chat li {
@@ -172,6 +179,11 @@ article {
 				font-size: .785em;
 				color: #999;
 			}
+	#chat li[data-type="received"].out-frame {
+		-webkit-transform: translateX(calc(-100% - 2rem));
+		-ms-transform: translateX(calc(-100% - 2rem));
+		transform: translateX(calc(-100% - 2rem));
+	}
 	#chat li[data-type="sent"] {
 		float: right;
 		-webkit-box-orient: vertical;
@@ -180,6 +192,14 @@ article {
 		flex-direction: column;
 		-ms-flex-item-align: end;
 		align-self: flex-end;
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	#chat li[data-type="sent"].out-frame {
+		-webkit-transform: translateX(calc(100% + 2rem));
+		-ms-transform: translateX(calc(100% + 2rem));
+		transform: translateX(calc(100% + 2rem));
 	}
 		@media (min-width: 40em) {
 			#chat li[data-type="sent"] {
@@ -255,6 +275,9 @@ article {
 		#chat li[data-type="choices"] {
 			min-height: initial;
 			clear: both;
+		}
+		#chat li[data-type="choices"].out-frame {
+			opacity: 0;
 		}
 			#chat li[data-type="choices"] ul {
 				display: -webkit-box;
