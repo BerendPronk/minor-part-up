@@ -7,11 +7,11 @@ var chatbot = (function() {
 	// User-types
 	var user = {
 		name: 'Berend Pronk',
-		avatar: 'user.jpg'
+		avatar: './assets/img/user.jpg'
 	};
 	var bot = {
 		name: 'Part-up Bot',
-		avatar: 'bot.jpg',
+		avatar: './assets/img/bot.jpg',
 	};
 
 	// Clears input and applies focus on it
