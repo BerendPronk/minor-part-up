@@ -38,12 +38,16 @@ var chatbot = (function() {
 		loader.src = './assets/img/load.gif';
 
 		loaderCtn.appendChild(loader);
-		chat.appendChild(loaderCtn);
+
+		// Applies loader when users message has appeared
+		setTimeout(function() {
+			chat.appendChild(loaderCtn);
+		}, 500)
 
 		// Removes loader
 		setTimeout(function() {
 			chat.removeChild(loaderCtn);
-		}, 750);
+		}, 1250);
 	}
 
 	// Creates a conversation between human user and bot
@@ -74,11 +78,11 @@ var chatbot = (function() {
 								// Sets timeout to provide a delay on the next bot-message
 								setTimeout(function() {
 									createMsg(bot, 'Maybe you were looking for this?');
-								}, 1250)
+								}, 750)
 								// Sets timeout to provide a delay on keyword-options
 								setTimeout(function() {
 									createOpts(answers.keyword.suggest(cleanWord));
-								}, 1750)
+								}, 1250)
 
 								return false;
 							}
@@ -88,7 +92,7 @@ var chatbot = (function() {
 					createMsg(bot, answers.options(cleanQuestion).response);
 					createOpts(answers.options(cleanQuestion).followups);
 				}
-			}, 750);
+			}, 1250);
 		}
 	}
 
