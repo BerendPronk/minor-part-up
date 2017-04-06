@@ -743,6 +743,56 @@ var answers = (function() {
 					checkKeyword: false
 				}
 			break;
+			case utils.cleanText('What is your favorite color'):
+				return {
+					response: 'Well, blue of course!',
+					checkKeyword: false
+				}
+			break;
+			case utils.cleanText('Tell a joke'):
+				var responses = [
+					'Did you hear about the restaurant on the moon? Great food, no atmosphere.',
+					'What do you call a fake noodle? An Impasta.',
+					'How many apples grow on a tree? All of them.',
+					'Want to hear a joke about paper? Nevermind it\'s tearable.',
+					'I just watched a program about beavers. It was the best dam program I\'ve ever seen.',
+					'Why did the coffee file a police report? It got mugged.',
+					'Dad, did you get a haircut? No I got them all cut.',
+					'What do you call a Mexican who has lost his car? Carlos.',
+					'Dad, can you put my shoes on? No, I don\'t think they\'ll fit me.',
+					'Why did the scarecrow win an award? Because he was outstanding in his field.'
+				];
+
+				return {
+					response: responses[Math.floor(Math.random() * responses.length)],
+					checkKeyword: false
+				}
+			break;
+			case utils.cleanText('Can you tell me a joke?'):
+				var responses = [
+					'Did you hear about the restaurant on the moon? Great food, no atmosphere.',
+					'What do you call a fake noodle? An Impasta.',
+					'How many apples grow on a tree? All of them.',
+					'Want to hear a joke about paper? Nevermind it\'s tearable.',
+					'I just watched a program about beavers. It was the best dam program I\'ve ever seen.',
+					'Why did the coffee file a police report? It got mugged.',
+					'Dad, did you get a haircut? No I got them all cut.',
+					'What do you call a Mexican who has lost his car? Carlos.',
+					'Dad, can you put my shoes on? No, I don\'t think they\'ll fit me.',
+					'Why did the scarecrow win an award? Because he was outstanding in his field.'
+				];
+
+				return {
+					response: responses[Math.floor(Math.random() * responses.length)],
+					checkKeyword: false
+				}
+			break;
+			case utils.cleanText('Tell me your biggest secret'):
+				return {
+					response: 'BOOP BEEP BOOP BEEP BOOOP',
+					checkKeyword: false
+				}
+			break;
 			default:
 				var responses = [
 					'I did not fully understand that. Please try again with a different description.',
@@ -759,7 +809,9 @@ var answers = (function() {
 		}
 	}
 
+	// Object containing keywords and follow-up questons on these keywords
 	var keyword = {
+		// List of keywords
 		list: [
 			'product',
 			'user',
