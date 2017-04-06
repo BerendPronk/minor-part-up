@@ -20,13 +20,13 @@ var utils = (function() {
 	}
 
 	// Checks if item consists in chosen array
-	var checkArray = function(item, arr) {
+	function checkArray(item, arr) {
 		if (arr.indexOf(item) !== -1) {
 			return true;
 		} else {
 			return false
 		}
-	};
+	}
 
 	return {
 		formatTime: formatTime,
