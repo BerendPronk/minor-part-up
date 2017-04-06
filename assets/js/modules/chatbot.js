@@ -24,9 +24,10 @@ var chatbot = (function() {
 	function lockOpts() {
 		var buttons = document.querySelectorAll('li[data-type="choices"] button');
 
-		buttons.forEach(function(button) {
-			button.disabled = true;
-		});
+		// For-loop to support older browsers
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].disabled = true;
+		}
 	}
 
 	// Creates a conversation between human user and bot
