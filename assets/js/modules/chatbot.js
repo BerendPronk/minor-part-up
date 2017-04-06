@@ -30,13 +30,30 @@ var chatbot = (function() {
 		}
 	}
 
+	// Sets a temporary loader to set the illusion that the bot is thinking
+	function setLoader() {
+		var loaderCtn = document.createElement('li');
+		var loader = document.createElement('img');
+
+		loader.src = './assets/img/load.gif';
+
+		loaderCtn.appendChild(loader);
+		chat.appendChild(loaderCtn);
+
+		// Removes loader
+		setTimeout(function() {
+			chat.removeChild(loaderCtn);
+		}, 750);
+	}
+
 	// Creates a conversation between human user and bot
 	function createConv(question) {
 		if (question !== '') {
 			var cleanQuestion = utils.cleanText(question);
 			createMsg(user, question);
 
-			// set load animation and remove in the timeout-function
+			// Sets a temporary loader
+			setLoader();
 
 			// Sets timeout before returning an reply
 			setTimeout(function() {
