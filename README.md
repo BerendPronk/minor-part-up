@@ -10,11 +10,8 @@ You can check out the open source project on the [Part-up repository](https://gi
 
 ## Demo
 A live demo of this chatbot is available for you to experience. Check it out on the following address. 
-If you just desire to just experience the chatbot by watching a video, you can of course!
 
 [Live demo of Part-up chatbot](https://berendpronk.github.io/minor/pu/files/chatbot/)
-
-[Video demo of Part-up chatbot]() (not availavle yet)
 
 ---
 
