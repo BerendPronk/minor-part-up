@@ -15,6 +15,27 @@ A live demo of this chatbot is available for you to experience. Check it out on 
 
 ---
 
+## Features
+The chatbot is able to perform multiple actions, like:
+
+- Providing the user with certain topics, to eventually end up with specific questions from the FAQ-page of Part-up
+- Scan the user's input on determined keywords, to give follow-up topics on the given question
+- Handling questions, despite not being exact duplicates of questions from the FAQ page:  
+  *example: How do I join a part-up?*
+  - *"How do I join a part-up?"* - When the user submits the exact question
+  - *"How do I 'join' a Partup?!?"* - When the user submits the question with/without unnecessary special characters/spaces
+  - *"HOW DO I JOIN A PART-UP?"* - When the user submits the question with (some) capital letters
+  - *"Howd o I joina part-up ?"* - When the user types in the question too fast, and misplaces spaces
+  - *"Where can I join a part-up?"* - When the user doesn't submit the exact question, but the system recognizes a keyword
+
+  **Follow-up questions output in last case:**  
+    *How do I join a part-up?  
+    How many partners or supporters can join my part-up?  
+    How many uppers can join a tribe?*
+- Give feedback at all costs. Even no input is recognized, it'll guide the user towards the FAQ-page or the live chat support
+
+---
+
 ## Performance
 To improve on the overall performance of this feature, every asset has been compressed, and mangled if needed. The original files still exist in this repository for you to inspect.
 
